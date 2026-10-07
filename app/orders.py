@@ -14,4 +14,9 @@ def get_order(request, order_id):
 
 
 def order_total(items):
+    """Total price of all line items, in cents."""
     return sum(item["price"] * item["qty"] for item in items)
+
+
+def order_count(rows):
+    return len(rows)
