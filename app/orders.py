@@ -15,3 +15,8 @@ def get_order(request, order_id):
 
 def order_total(items):
     return sum(item["price"] * item["qty"] for item in items)
+
+
+def cancel_order(request, order_id):
+    run_query("UPDATE orders SET status = 'cancelled' WHERE id = ?", (order_id,))
+    return True
